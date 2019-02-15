@@ -53,7 +53,9 @@ class App extends Component {
   render() {
     return (
       <div className="scoreboard">
-        <Header title="Scoreboard" totalPlayers={this.state.players.length} />
+        {/* pass the entire state 'players'  to the Header comp */}
+
+        <Header title="Scoreboard" players={ this.state.players } />
 
         {/* Players list */}
         {/* concept of: independent, self-contained & reusable components - which supports the idea of separation of concerns  */}
