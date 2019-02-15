@@ -43,6 +43,23 @@ class App extends Component {
     })
   };
 
+  //new initial player id
+  prevPlayerId = 6;
+
+  //merge the existing obj into current state with the new array being create below
+  handleAddPlayer = (name) => {
+    this.setState({
+      players: [
+        ...this.state.players,
+        {
+        name: name,
+        score: 0,
+        id: this.prevPlayerId += 1
+      }]
+    })
+  };
+
+
   handleScoreChange = (index, delta) => {
       this.setState(prevState => {
           return {
@@ -76,7 +93,7 @@ class App extends Component {
             changeScore={this.handleScoreChange} />
         })}
 
-        <AddPlayerForm />
+        <AddPlayerForm addPlayer={this.handleAddPlayer} />
       </div>
     );
   }
