@@ -2,6 +2,7 @@ import React, { Component } from 'react'; //named import
 import './../App.css';
 import Header from "./Header";
 import Player from "./Player";
+import AddPlayerForm from "./AddPlayerForm";
 
 class App extends Component {
   state = {
@@ -74,6 +75,8 @@ class App extends Component {
             removePlayer={this.handleRemovePlayer}
             changeScore={this.handleScoreChange} />
         })}
+
+        <AddPlayerForm />
       </div>
     );
   }
