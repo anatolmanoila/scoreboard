@@ -8,22 +8,27 @@ class App extends Component {
     players: [
       {
         name: "Claudiu",
+        score: 0,
         id: 1
       },
       {
         name: "Andreea",
+        score: 0,
         id: 2
       },
       {
         name: "Gabi",
+        score: 0,
         id: 3
       },
       {
         name: "Andrei",
+        score: 0,
         id: 4
       },
       {
         name: "Alex",
+        score: 0,
         id: 5
       }
     ]
@@ -35,6 +40,14 @@ class App extends Component {
         players: prevState.players.filter(p => { return p.id !== id })
       };
     })
+  };
+
+  handleScoreChange = (index, delta) => {
+      this.setState(prevState => {
+          return {
+            score: prevState.players[index].score += delta
+          };
+      })
   };
 
   render() {
@@ -49,12 +62,15 @@ class App extends Component {
         {/*  keys needs to be unique -- in order for React to keep track of elements that have changed  */}
         {/* key is needed only for those elements that gets removed or updated or rearranged within UI - so which items where changed, removed or updated from the DOM  */}
 
-        {this.state.players.map((player) => {
+        {this.state.players.map((player, index) => {
           return <Player
             name={player.name}
+            score={player.score}
             id={player.id}
             key={player.id.toString()}
-            removePlayer={this.handleRemovePlayer} />
+            index={index}
+            removePlayer={this.handleRemovePlayer}
+            changeScore={this.handleScoreChange} />
         })}
       </div>
     );

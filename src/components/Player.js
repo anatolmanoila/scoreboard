@@ -2,6 +2,7 @@ import React from 'react';
 import Counter from './Counter';
 
 const Player = (props) => {
+
     return (
         <div className="player">
             <span className="player-name">
@@ -10,7 +11,10 @@ const Player = (props) => {
             </span>
 
             {/* Player is parent of Counter */}
-            <Counter />
+            <Counter
+                score={ props.score }
+                index={ props.index }
+                changeScore={ props.changeScore } />
         </div>
     );
 };
