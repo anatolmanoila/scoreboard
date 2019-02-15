@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-
-const Header = (props) => {
-  return (
-      <header>
-          <h1>{ props.title }</h1>
-          <span className="stats">Players: { props.totalPlayers }</span>
-      </header>
-  );
-}
+import './../App.css';
+import Header from "./Header";
+import Player from "./Player";
 
 class Counter extends React.Component {
 
@@ -43,20 +36,7 @@ class Counter extends React.Component {
   }
 }
 
-const Player = (props) => {
-  console.log(props.removePlayer);
-  return (
-      <div className="player">
-          <span className="player-name">
-              <button className="remove-player" onClick={() => props.removePlayer(props.id) }>✖</button>
-              { props.name }
-          </span>
 
-          {/* Player is parent of Counter */}
-          <Counter />
-      </div>
-  );
-};
 
 //App top -level -component
 //Components =  parent - child relationship
@@ -64,7 +44,7 @@ class App extends Component {
   state = {
     players: [
       {
-        name: "Michael",
+        name: "Claudiu",
         id: 1
       },
       {
@@ -72,12 +52,16 @@ class App extends Component {
         id: 2
       },
       {
-        name: "John",
+        name: "Gabi",
         id: 3
       },
       {
-        name: "Gabi",
+        name: "Andrei",
         id: 4
+      },
+      {
+        name: "Alex",
+        id: 5
       }
     ]
   };
