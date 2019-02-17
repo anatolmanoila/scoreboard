@@ -48,15 +48,15 @@ class App extends Component {
 
   //merge the existing obj into current state with the new array being create below
   handleAddPlayer = (name) => {
-    this.setState({
+    this.setState( prevState => ({
       players: [
-        ...this.state.players,
+        ...prevState.players,
         {
         name: name,
         score: 0,
         id: this.prevPlayerId += 1
       }]
-    })
+    }))
   };
 
 
