@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Counter from './Counter';
 
 const Player = (props) => {
 
@@ -6,9 +7,15 @@ const Player = (props) => {
         <div className="player">
             <span className="player-name">
                 <button className="remove-player"
-                        onClick={ () => props.removePlayer(props.id) }>✖</button>
+                        onClick={() => props.removePlayer(props.id) }>✖</button>
                 { props.name }
             </span>
+
+            {/* Player is parent of Counter */}
+            <Counter
+                score={ props.score }
+                index={ props.index }
+                changeScore={ props.changeScore } />
 
         </div>
     );
