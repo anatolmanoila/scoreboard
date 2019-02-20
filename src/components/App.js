@@ -11,22 +11,27 @@ class App extends Component {
     players: [
         {
             name: "Michael",
+            score: 0,
             id: 1
         },
         {
             name: "Andreea",
+            score: 0,
             id: 2
         },
         {
             name: "John",
+            score: 0,
             id: 3
         },
         {
             name: "Gabi",
+            score: 0,
             id: 4
         },
         {
           name: "Ioana",
+          score: 0,
           id: 5
       }
     ]
@@ -41,6 +46,11 @@ class App extends Component {
     });
   }
 
+
+  handleScoreChange = (index) => {
+    console.log('score change');
+  };
+
   render() {
     return (
       <div className="scoreboard">
@@ -48,10 +58,13 @@ class App extends Component {
                 totalPlayers={this.state.players.length}
         />
 
-        { this.state.players.map( (player) => {
+        { this.state.players.map( (player, index) => {
           return <Player name={ player.name }
                          id={ player.id}
                          key={ player.id.toString() }
+                         changeScore={this.handleScoreChange }
+                         index={index}
+                         score={player.score}
                          removePlayer={ this.handleRemovePlayer }
 
                  />
