@@ -7,31 +7,7 @@ import AddPlayerForm from "../components/AddPlayerForm";
 class Scoreboard extends Component {
   state = {
     players: [
-      {
-        name: "Claudiu",
-        score: 0,
-        id: 1
-      },
-      {
-        name: "Andreea",
-        score: 0,
-        id: 2
-      },
-      {
-        name: "Gabi",
-        score: 0,
-        id: 3
-      },
-      {
-        name: "Andrei",
-        score: 0,
-        id: 4
-      },
-      {
-        name: "Alex",
-        score: 0,
-        id: 5
-      }
+
     ]
   };
 
