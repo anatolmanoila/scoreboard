@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './../App.css';
 import Header from './Header';
 import Player from './Player';
+import AddPlayerForm from './AddPlayerForm';
 
 //App top -level -component
 //Components =  parent - child relationship
@@ -37,6 +38,8 @@ class App extends Component {
     ]
 };
 
+    nextId = 5;
+
   //custom methods:
   handleRemovePlayer = (id) => {
     this.setState( prevState => {
@@ -52,6 +55,22 @@ class App extends Component {
       return {
         score: prevState.players[index].score += delta
       }
+    });
+  };
+
+  handleAddPlayer = (name) => {
+
+    this.setState(prevState => {
+        return {
+          players: [
+            ...prevState.players,
+            {
+              name: name,
+              score: 0,
+              id: this.nextId += 1
+            }
+          ]
+        }
     });
   };
 
@@ -73,6 +92,8 @@ class App extends Component {
 
                  />
         }) }
+
+        <AddPlayerForm addPlayer={ this.handleAddPlayer } />
 
       </div>
     );
