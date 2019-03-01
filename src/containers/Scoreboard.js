@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react'; //named import
+import React, { Component } from 'react'; //named import
 import { bindActionCreators } from 'redux';
 import * as PlayerActionCreators from '../actions/player';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './../App.css';
 import Header from "../components/Header";
 import Player from "../components/Player";
@@ -25,7 +26,6 @@ class Scoreboard extends Component {
             index={index}
             name={player.name}
             score={player.score}
-            id={player.id}
             key={player.name}
             updatePlayerScore={updatePlayerScore}
             removePlayer={removePlayer}

@@ -38,7 +38,7 @@ export default function Player(state = initialState, action) {
 
         case PlayerActionTypes.UPDATE_PLAYER_SCORE:
             return state.map( (player, index) => {
-                if(index == action.index) {
+                if(index === action.index) {
                     return {
                         ...player,
                         score: player.score + action.score

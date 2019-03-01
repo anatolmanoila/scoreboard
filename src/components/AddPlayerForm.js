@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddPlayerForm extends Component {
+
+    static propTypes = {
+        addPlayer: PropTypes.func.isRequired
+    }
 
     state = {
         value: ''
@@ -10,7 +15,7 @@ class AddPlayerForm extends Component {
         this.setState({ value: e.target.value })
     };
 
-    handleSubmit = (e) => {
+    addPlayer = (e) => {
         e.preventDefault();
         if (this.state.value.length === 0) {
             return;
@@ -21,7 +26,7 @@ class AddPlayerForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.addPlayer}>
                 <input type="text"
                         value={this.state.value}
                         onChange={this.handleValueChange}
